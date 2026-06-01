@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Phone, Mail } from "lucide-react";
+import { Globe, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -19,11 +19,25 @@ export default function Footer() {
                 </span>
               </span>
             </a>
-            <p className="text-muted max-w-sm leading-relaxed mb-6">
+            <p className="text-muted max-w-sm leading-relaxed mb-4">
               Mobilne kino wirtualnej rzeczywistości 9D VR 360° na eventy,
-              wesela, urodziny i imprezy firmowe. Niezapomniane emocje dla
-              każdego.
+              wesela, urodziny i imprezy firmowe w Łomży, województwie
+              podlaskim oraz na terenie całej Polski.
             </p>
+            <div className="flex flex-col gap-2 text-sm text-muted mb-4">
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                ul. Zawady Przedmieście 2, 18-400 Łomża
+              </span>
+              <span className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-primary" />
+                +48 516 535 479
+              </span>
+              <span className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                kontakt@virtualkino.pl
+              </span>
+            </div>
             <div className="flex items-center gap-4">
               <a
                 href="https://www.facebook.com/profile.php?id=61550814823409"
@@ -54,6 +68,8 @@ export default function Footer() {
                 { href: "#hero", label: "Start" },
                 { href: "#doswiadczenie", label: "Doświadczenie" },
                 { href: "#oferta", label: "Oferta" },
+                { href: "#galeria", label: "Galeria" },
+                { href: "#faq", label: "FAQ" },
                 { href: "#kontakt", label: "Kontakt" },
               ].map((link) => (
                 <li key={link.href}>
@@ -68,30 +84,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Offer links */}
           <div>
             <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4">
-              Kontakt
+              Oferta
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="tel:+48516535479"
-                  className="flex items-center gap-2 text-muted hover:text-primary transition-colors text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  +48 516 535 479
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:kontakt@virtualkino.pl"
-                  className="flex items-center gap-2 text-muted hover:text-primary transition-colors text-sm"
-                >
-                  <Mail className="w-4 h-4" />
-                  kontakt@virtualkino.pl
-                </a>
-              </li>
+            <ul className="space-y-3 text-sm">
+              {[
+                "Wynajem na wesele",
+                "Eventy firmowe",
+                "Urodziny i komunie",
+                "Festyny i koncerty",
+                "Galerie handlowe",
+                "Dzierżawa długoterminowa",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#oferta"
+                    className="text-muted hover:text-primary transition-colors"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -106,10 +121,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Virtual Kino 9D. Wszelkie prawa
             zastrzeżone.
           </p>
-          <div className="flex items-center gap-6 text-sm text-muted">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Polityka prywatności
-            </a>
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-muted">
+            <span>NIP: 7182040568</span>
+            <span>REGON: 20078138500000</span>
+            <span>Łomża, woj. podlaskie</span>
           </div>
         </motion.div>
       </div>

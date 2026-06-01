@@ -5,6 +5,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ServicesSection from "@/components/ServicesSection";
 import GallerySection from "@/components/GallerySection";
 import SocialMediaSection from "@/components/SocialMediaSection";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
         <ServicesSection />
         <GallerySection />
         <SocialMediaSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

@@ -9,58 +9,61 @@ const plans = [
   {
     icon: Clock,
     name: "Wynajem jednorazowy",
-    description: "Idealne rozwiązanie na pojedyncze wydarzenie",
+    description:
+      "Idealne rozwiązanie na wesele, urodziny, komunie, festyn i imprezę firmową w Łomży i okolicach",
     price: "od 800 zł",
     period: "/event",
     features: [
-      "Dostawa i montaż na miejscu",
-      "Dostęp do biblioteki filmów",
+      "Dostawa i montaż na miejscu w Łomży i okolicy",
+      "Dostęp do biblioteki filmów VR (kolejki, horrory, bajki)",
       "Czas trwania: 2h – cały dzień",
-      "Obsługa techniczna",
+      "Obsługa techniczna w cenie",
     ],
-    cta: "Zapytaj o wycenę",
+    cta: "Zapytaj o wycenę na Twój event",
     popular: false,
     color: "primary",
   },
   {
     icon: Users,
     name: "Wynajem z operatorem",
-    description: "Pełna obsługa – Ty cieszysz się imprezą",
+    description:
+      "Pełna obsługa na miejscu – Ty cieszysz się eventem, my zajmujemy się gośćmi",
     price: "od 1200 zł",
     period: "/event",
     features: [
       "Wszystko z pakietu podstawowego",
       "Doświadczony operator na miejscu",
-      "Pomoc przy wsiadaniu i zdejmowaniu gogli",
-      "Priorytetowa obsługa gości",
-      "Bezpieczeństwo i nadzór",
+      "Pomoc przy wsiadaniu i zdejmowaniu gogli VR",
+      "Priorytetowa obsługa gości w kolejce",
+      "Bezpieczeństwo i nadzór nad uczestnikami",
     ],
-    cta: "Wybierz ten pakiet",
+    cta: "Wybierz najpopularniejszy pakiet",
     popular: true,
     color: "secondary",
   },
   {
     icon: Shield,
     name: "Dzierżawa długoterminowa",
-    description: "Dla galerii, parków i stałych lokalizacji",
+    description:
+      "Dla galerii handlowych, parków rozrywki i stałych lokalizacji w Podlaskiem",
     price: "Indywidualnie",
     period: "",
     features: [
       "Dzierżawa na miesiąc lub dłużej",
-      "Możliwość zarabiania na biletach",
-      "Reklama Twojej marki na symulatorze",
-      "Serwis i wymiana filmów",
+      "Możliwość zarabiania na sprzedaży biletów",
+      "Reklama Twojej marki na obudowie symulatora",
+      "Regularny serwis i aktualizacja filmów",
       "Elastyczne warunki umowy",
     ],
-    cta: "Skontaktuj się",
+    cta: "Skontaktuj się – przygotujemy ofertę",
     popular: false,
     color: "accent",
   },
 ];
 
 const events = [
-  "Imprezy firmowe",
-  "Wesela",
+  "Imprezy firmowe Łomża",
+  "Wesela Podlaskie",
   "Urodziny",
   "Komunie",
   "Festyny",
@@ -95,9 +98,11 @@ export default function ServicesSection() {
             <span className="text-foreground">WYNAJMIJ </span>
             <span className="text-secondary text-glow-magenta">KINO 9D</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-muted leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg text-muted leading-relaxed">
             Elastyczne warunki współpracy dopasowane do Twoich potrzeb. Od
-            jednorazowego eventu po długoterminową dzierżawę.
+            jednorazowego wynajmu na wesele w Łomży, przez obsługę festynu z
+            operatorem, po długoterminową dzierżawę w galerii handlowej w
+            Podlaskiem.
           </p>
         </motion.div>
 
@@ -137,7 +142,7 @@ export default function ServicesSection() {
             >
               <Image
                 src={src}
-                alt={`Event ${i + 1}`}
+                alt={`Kino 9D na evencie w Łomży i okolicach - zdjęcie ${i + 1}`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -234,7 +239,7 @@ export default function ServicesSection() {
           })}
         </div>
 
-        {/* Mobile note */}
+        {/* Mobile note with local SEO */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -242,9 +247,10 @@ export default function ServicesSection() {
           className="rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center"
         >
           <p className="text-muted">
-            <span className="text-primary font-bold">Mobilność</span> – Kino
-            jest zamontowane na aucie. Dowozimy na miejsce i montujemy. Nie
-            musisz martwić się o transport.
+            <span className="text-primary font-bold">Mobilność</span> – Kino 9D
+            zamontowane na aucie. Dowozimy pod wskazany adres w Łomży,
+            województwie podlaskim i na terenie całej Polski. Nie musisz
+            martwić się o transport.
           </p>
         </motion.div>
       </div>
