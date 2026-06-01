@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Orbitron } from "next/font/google";
 import "./globals.css";
 
@@ -12,6 +12,13 @@ const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#030308",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://virtualkino.pl"),
@@ -70,24 +77,43 @@ export const metadata: Metadata = {
       "Mobilne kino 9D VR z obracaniem 360° na Twoją imprezę. Wesela, urodziny, festyny, eventy firmowe. Łomża i cała Polska. Tel. 516 535 479.",
     images: [
       {
-        url: "https://virtualkino.pl/images/1000007907-ltmyqt5b.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Virtual Kino 9D - Symulator VR 360° na evencie",
+        alt: "Virtual Kino 9D - Symulator VR 360° na evencie w Łomży",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@virtualkino9d",
+    creator: "@virtualkino9d",
     title: "Virtual Kino 9D | Wynajem Kina VR na Eventy",
     description:
       "Mobilne kino 9D VR 360° na imprezy. Łomża i cała Polska. Tel. 516 535 479.",
-    images: ["https://virtualkino.pl/images/1000007907-ltmyqt5b.jpg"],
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://virtualkino.pl",
   },
   category: "Rozrywka i Eventy",
+  applicationName: "Virtual Kino 9D",
+  appleWebApp: {
+    capable: true,
+    title: "Virtual Kino 9D",
+    statusBarStyle: "black-translucent",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  other: {
+    "msapplication-TileImage": "/og-image.jpg",
+    "msapplication-TileColor": "#030308",
+    "msapplication-config": "none",
+    "facebook-domain-verification": "",
+  },
 };
 
 const jsonLd = {
@@ -104,6 +130,7 @@ const jsonLd = {
         "Wynajem mobilnego kina 9D VR 360° na imprezy, wesela, urodziny, festyny i eventy firmowe.",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61550814823409",
+        "https://www.youtube.com/shorts/KyYaDbnLCiQ",
       ],
       contactPoint: {
         "@type": "ContactPoint",
@@ -123,7 +150,7 @@ const jsonLd = {
       telephone: "+48 516 535 479",
       email: "kontakt@virtualkino.pl",
       priceRange: "$$",
-      image: "https://virtualkino.pl/images/1000007907-ltmyqt5b.jpg",
+      image: "https://virtualkino.pl/og-image.jpg",
       address: {
         "@type": "PostalAddress",
         streetAddress: "ul. Zawady Przedmieście 2",
@@ -153,7 +180,15 @@ const jsonLd = {
       ],
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
         opens: "08:00",
         closes: "22:00",
       },
@@ -166,7 +201,8 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Wynajem kina 9D na event",
-              description: "Wynajem mobilnego kina VR na imprezy firmowe, wesela, urodziny, festyny.",
+              description:
+                "Wynajem mobilnego kina VR na imprezy firmowe, wesela, urodziny, festyny.",
             },
           },
           {
@@ -174,7 +210,8 @@ const jsonLd = {
             itemOffered: {
               "@type": "Service",
               name: "Dzierżawa kina 9D długoterminowa",
-              description: "Dzierżawa symulatora VR na dłuższy okres dla galerii handlowych i parków rozrywki.",
+              description:
+                "Dzierżawa symulatora VR na dłuższy okres dla galerii handlowych i parków rozrywki.",
             },
           },
         ],
@@ -206,6 +243,30 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://virtualkino.pl" />
+
+        {/* WhatsApp / SMS / iMessage optimizations */}
+        <meta property="og:image:secure_url" content="https://virtualkino.pl/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:updated_time" content="2025-01-01T00:00:00+00:00" />
+
+        {/* Twitter/X specific */}
+        <meta name="twitter:domain" content="virtualkino.pl" />
+        <meta name="twitter:url" content="https://virtualkino.pl" />
+
+        {/* Telegram */}
+        <meta property="telegram:channel" content="@virtualkino9d" />
+
+        {/* LinkedIn */}
+        <meta property="linkedin:owner" content="Virtual Kino 9D" />
+
+        {/* Apple / iMessage */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        {/* Microsoft / Teams */}
+        <meta name="msapplication-starturl" content="https://virtualkino.pl" />
+        <meta name="msapplication-tooltip" content="Virtual Kino 9D - Wynajem kina VR na eventy" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -7,6 +7,7 @@ import GallerySection from "@/components/GallerySection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
+import ShareButtons from "@/components/ShareButtons";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <SocialMediaSection />
         <FAQSection />
         <ContactSection />
+        <ShareButtons />
       </main>
       <Footer />
     </SmoothScrollProvider>
