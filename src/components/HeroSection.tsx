@@ -6,39 +6,19 @@ import ParticlesBackground from "./ParticlesBackground";
 import VideoHero from "./VideoHero";
 import YouTubeLightbox from "./YouTubeLightbox";
 
-const HERO_VIDEO_SRC = "";
-
 export default function HeroSection() {
-  const hasVideo = Boolean(HERO_VIDEO_SRC);
-
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {hasVideo ? (
-        <VideoHero src={HERO_VIDEO_SRC}>
-          <ParticlesBackground />
-        </VideoHero>
-      ) : (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-[#050510] to-background z-0" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,240,255,0.08)_0%,_transparent_70%)] z-0" />
+      {/* Facebook Reel Video Background */}
+      <VideoHero />
 
-          <ParticlesBackground />
-
-          <motion.div
-            className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-[100px]"
-            animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/10 blur-[120px]"
-            animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </>
-      )}
+      {/* Particles overlay on top of video */}
+      <div className="absolute inset-0 z-[3] pointer-events-none">
+        <ParticlesBackground />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         <motion.div
@@ -58,11 +38,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-[family-name:var(--font-orbitron)] leading-[1.1] tracking-tight mb-6"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-[family-name:var(--font-orbitron)] leading-[1.1] tracking-tight mb-6 drop-shadow-lg"
         >
           <span className="block text-foreground">KINO 9D VR</span>
           <span className="block gradient-text text-glow mt-2">
-            NA TWOJ EVENT
+            NA TWÓJ EVENT
           </span>
         </motion.h1>
 
@@ -70,12 +50,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-muted leading-relaxed mb-6"
+          className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-white/90 leading-relaxed mb-6 drop-shadow-md"
         >
-          Symulator <strong className="text-foreground">9D VR 360°</strong> na
+          Symulator <strong className="text-primary">9D VR 360°</strong> na
           wesele, urodziny, festyn, event firmowy i galerię handlową. Obrót o
           360°, efekty wiatru, wibracji i dźwięku. Łomża, Podlaskie i dowóz na
-          terenie <strong className="text-foreground">całej Polski</strong>.
+          terenie <strong className="text-primary">całej Polski</strong>.
         </motion.p>
 
         {/* Location & phone badges */}
@@ -85,13 +65,13 @@ export default function HeroSection() {
           transition={{ delay: 0.7 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-8"
         >
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3 py-1 text-xs text-white/90">
             <MapPin className="w-3 h-3 text-primary" />
             Łomża · Podlaskie · Cała Polska
           </span>
           <a
             href="tel:+48516535479"
-            className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs text-primary hover:bg-primary/10 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/20 backdrop-blur-md px-3 py-1 text-xs text-primary hover:bg-primary/30 transition-colors"
           >
             <Phone className="w-3 h-3" />
             516 535 479
@@ -113,7 +93,7 @@ export default function HeroSection() {
           </a>
           <a
             href="#kontakt"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-base font-medium text-foreground backdrop-blur-sm transition-all hover:bg-white/10 hover:border-primary/30"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/30 backdrop-blur-md px-8 py-4 text-base font-medium text-white transition-all hover:bg-black/50 hover:border-primary/40"
           >
             Bezpłatna wycena
           </a>
@@ -134,10 +114,10 @@ export default function HeroSection() {
             { value: "PL", label: "Zasięg" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-primary font-[family-name:var(--font-orbitron)]">
+              <div className="text-2xl sm:text-3xl font-bold text-primary font-[family-name:var(--font-orbitron)] drop-shadow-lg">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm text-muted mt-1">
+              <div className="text-xs sm:text-sm text-white/80 mt-1">
                 {stat.label}
               </div>
             </div>
@@ -145,13 +125,14 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="text-xs text-muted uppercase tracking-widest">
+        <span className="text-xs text-white/70 uppercase tracking-widest">
           Przewiń
         </span>
         <motion.div
